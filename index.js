@@ -1,49 +1,13 @@
-var spawn = require('child_process').spawn;
+var express = require('express')
+var app = express()
 
-module.exports = function(repo, targetPath, opts, cb) {
+app.set('port', (process.env.PORT || 5000))
+app.use(express.static(__dirname + '/public'))
 
-    if (typeof opts === 'function') {
-        cb = opts;
-        opts = null;
-    }
+app.get('/', function(request, response) {
+  response.send('Hello World!')
+})
 
-    opts = opts || {};
-
-    var git = opts.git || 'git';
-    var args = ['clone'];
-
-    if (opts.shallow) {
-        args.push('--depth');
-        args.push('1');
-    }
-
-    args.push('--');
-    args.push(repo);
-    args.push(targetPath);
-
-    var process = spawn(git, args);
-    process.on('close', function(status) {
-        if (status == 0) {
-            if (opts.checkout) {
-                _checkout();
-            } else {
-                cb && cb();    
-            }
-        } else {
-            cb && cb(new Error("'git clone' failed with status " + status));
-        }
-    });
-
-    function _checkout() {
-        var args = ['checkout', opts.checkout];
-        var process = spawn(git, args, { cwd: targetPath });
-        process.on('close', function(status) {
-            if (status == 0) {
-                cb && cb();
-            } else {
-                cb && cb(new Error("'git checkout' failed with status " + status));
-            }
-        });
-    }
-
-}
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'))
+})

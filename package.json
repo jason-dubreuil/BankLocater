@@ -1,24 +1,29 @@
 {
-  "name": "git-clone",
-  "version": "0.1.0",
-  "description": "Clone a git repository",
+  "name": "node-js-sample",
+  "version": "0.2.0",
+  "description": "A sample Node.js app using Express 4",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "engines": {
+    "node": "4.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jaz303/git-clone.git"
+    "url": "https://github.com/heroku/node-js-sample"
   },
   "keywords": [
-    "git",
-    "clone",
-    "shell"
+    "node",
+    "heroku",
+    "express"
   ],
-  "author": "Jason Frame <jason@onehackoranother.com> (http://jasonframe.co.uk)",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jaz303/git-clone/issues"
-  },
-  "homepage": "https://github.com/jaz303/git-clone"
+  "author": "Mark Pundsack",
+  "contributors": [
+    "Zeke Sikelianos <zeke@sikelianos.com> (http://zeke.sikelianos.com)"
+  ],
+  "license": "MIT"
 }

@@ -1,31 +1,38 @@
-# git-clone
+# node-js-sample
 
-Clone a git repository via shell command.
+A barebones Node.js app using [Express 4](http://expressjs.com/).
 
-## Installation
+## Running Locally
 
-Install:
+Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
 
-	$ npm install git-clone
+```sh
+git clone git@github.com:heroku/node-js-sample.git # or clone your own fork
+cd node-js-sample
+npm install
+npm start
+```
 
-Require:
+Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-	var clone = require('git-clone');
+## Deploying to Heroku
 
-## API
+```
+heroku create
+git push heroku master
+heroku open
+```
 
-#### `clone(repo, targetPath, [options], cb)`
+Alternatively, you can deploy your own copy of the app using the web-based flow:
 
-Clone `repo` to `targetPath`, calling `cb` on completion.
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-Supported `options`:
+## Documentation
 
-  * `git`: path to `git` binary; default: `git` (optional).
-  * `shallow`: when `true`, clone with depth 1 (optional).
-  * `checkout`: revision/branch/tag to check out (optional).
+For more information about using Node.js on Heroku, see these Dev Center articles:
 
-## Copyright &amp; License
-
-&copy; 2014 Jason Frame [ [@jaz303](http://twitter.com/jaz303) / [jason@onehackoranother.com](mailto:jason@onehackoranother.com) ]
-
-Released under the ISC license.
+- [10 Habits of a Happy Node Hacker](https://blog.heroku.com/archives/2014/3/11/node-habits)
+- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
+- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
+- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
+- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
